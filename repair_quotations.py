@@ -5,7 +5,6 @@ class RepairQuotations(models.Model):
     _inherit = 'repair.order'
 
     # Header fields
-    # name = fields.Char(string='Mã phiếu', related='x_quotation_id.name', store=True)
     name = fields.Char(string='Name')
     x_quotation_id = fields.Many2one('repair.order', string='Số báo giá')
     x_vehicle_plate = fields.Many2one('repair.order', string='Biển số')
@@ -24,6 +23,7 @@ class RepairQuotations(models.Model):
         ('cancel', 'Hủy'),
         ('created', 'Đã tạo YCTT')
     ], string='Trạng thái', default='draft')
+    _vehicle_info_id = fields.Many2one('vehicle.info', string='Vehicle Info')
 
     def action_contact(self):
         return
