@@ -14,6 +14,7 @@ _build/
 # /addons/*
 # !/addons/
 # !/addons/repair/
+# !/addons/stock/
 
 
 # /enterprise-17.0/*
