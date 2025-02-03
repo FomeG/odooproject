@@ -1,60 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="repair__history.list">
-      <field name="name">Repair_History list</field>
-      <field name="model">repair__history.repair__history</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
--->
+  <record id="view_repair_order_form_inherit_history" model="ir.ui.view">
+    <field name="name">repair.order.form.inherit.history</field>
+    <field name="model">repair.order</field>
+    <field name="inherit_id" ref="repair.view_repair_order_form" />
+    <field name="arch" type="xml">
+      <!-- Chèn vào trong notebook hiện có -->
+      <xpath expr="//notebook" position="inside">
+        <page string="Lịch sử sửa chữa" name="repair_history">
+          <group>
+            <field name="repair_order_id" />
+            <field name="job_type" />
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="repair__history.action_window">
-      <field name="name">Repair_History window</field>
-      <field name="res_model">repair__history.repair__history</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="repair__history.action_server">
-      <field name="name">Repair_History server</field>
-      <field name="model_id" ref="model_repair__history_repair__history"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
+  <!-- Job Type Tree View -->
+  <record id="view_repair_job_type_tree" model="ir.ui.view">
+    <field name="name">repair.job.type.tree</field>
+    <field name="model">repair.job.type</field>
+    <field name="arch" type="xml">
+      <tree string="Job Types">
+        <field name="name" />
+        <field name="code" />
+        <field name="description" />
+      </tree>
+    </field>
+  </record>
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="Repair_History" id="repair__history.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="repair__history.menu_1" parent="repair__history.menu_root"/>
-    <menuitem name="Menu 2" id="repair__history.menu_2" parent="repair__history.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="repair__history.menu_1_list" parent="repair__history.menu_1"
-              action="repair__history.action_window"/>
-    <menuitem name="Server to list" id="repair__history" parent="repair__history.menu_2"
-              action="repair__history.action_server"/>
--->
-  </data>
+  <!-- Job Type Form View -->
+  <record id="view_repair_job_type_form" model="ir.ui.view">
+    <field name="name">repair.job.type.form</field>
+    <field name="model">repair.job.type</field>
+    <field name="arch" type="xml">
+      <form string="Job Type">
+        <sheet>
+          <group>
+            <field name="name" />
+            <field name="code" />
+            <field name="description" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
 </odoo>
