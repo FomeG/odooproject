@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Action Lệnh sửa chữa -->
+    <record id="action_repair_orders" model="ir.actions.act_window">
+        <field name="name">Lệnh sửa chữa</field>
+        <field name="res_model">repair.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action Báo giá -->
+    <record id="action_repair_quotes" model="ir.actions.act_window">
+        <field name="name">Báo giá</field>
+        <field name="res_model">repair.order</field>  <!--        chỉnh lại tên model sau-->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action Đơn đặt hàng (LSC) -->
+    <record id="action_repair_orders_lsc" model="ir.actions.act_window">
+        <field name="name">Đơn đặt hàng (LSC)</field>
+        <field name="res_model">repair.order</field> <!--        chỉnh lại tên model sau-->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action Yêu cầu thanh toán với HMV -->
+    <record id="action_repair_payment_request" model="ir.actions.act_window">
+        <field name="name">Yêu cầu thanh toán với HMV</field>
+        <field name="res_model">repair.order</field>   <!--        chỉnh lại tên model sau-->
+
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

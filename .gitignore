@@ -11,11 +11,14 @@ _build/
 !/custom_addons/
 
 
-/addons/*
-
-
+# /addons/*
 # !/addons/
 # !/addons/repair/
+
+
+# /enterprise-17.0/*
+# !/enterprise-17.0/
+# !/enterprise-17.0/appointment/
 
 
 # dotfiles
