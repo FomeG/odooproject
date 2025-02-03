@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="name">repair.order.form.inherit</field>
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <group string="Thông tin chung">
+                    <group>
+                        <field name="x_customer_feedback"/>
+                        <field name="x_notes"/>
+                        <field name="x_content"/>
+                        <field name="x_pricelist_id"/>
+                    </group>
+                    <group>
+                        <field name="x_total"/>
+                        <field name="x_tax_amount"/>
+                        <field name="x_total_amount"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
     <!-- Action Lệnh sửa chữa -->
     <record id="action_repair_orders" model="ir.actions.act_window">
         <field name="name">Lệnh sửa chữa</field>
         <field name="res_model">repair.order</field>
         <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_repair_order_form"/>
     </record>
 
     <!-- Action Báo giá -->
@@ -28,4 +51,7 @@
 
         <field name="view_mode">tree,form</field>
     </record>
+
+
+
 </odoo>
