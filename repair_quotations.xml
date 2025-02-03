@@ -33,7 +33,8 @@
                     <header class="text-center">
                         <div class="o_statusbar_buttons text-center w-100">
                             <button name="action_contact" string="Liên hệ" type="object" class="oe_highlight"/>
-                            <button name="action_order_quotations" string="Đơn đặt hàng" type="object" class="oe_highlight"/>
+                            <button name="action_order_quotations" string="Đơn đặt hàng" type="object"
+                                    class="oe_highlight"/>
                             <button name="action_export_inv" string="Xuất kho" type="object" class="oe_highlight"/>
                             <button name="action_customer_care" string="Chăm sóc KH" type="object"
                                     class="oe_highlight"/>
@@ -70,6 +71,23 @@
                         </group>
                     </sheet>
                 </xpath>
+
+                <notebook>
+                    <page string="Thông tin KH/ xe">
+                        <field name="_vehicle_info_id">
+                            <tree name="Thông tin xe - Vehicle info">
+                                <field name="plate_number"/>
+                                <field name="type"/>
+                                <field name="trademark"/>
+                                <field name="model"/>
+                                <field name="owner"/>
+                                <field name="email"/>
+                                <field name="total_money"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+
             </field>
         </record>
 
