@@ -1,0 +1,84 @@
+<odoo>
+    <data>
+        <!-- Tree View for Hotel -->
+        <record id="view_repair_quotation_tree" model="ir.ui.view">
+            <field name="name">repair.quotations.tree</field>
+            <field name="model">repair.order</field>
+            <field name="arch" type="xml">
+                <tree decoration-info="status=='draft'" decoration-success="status=='completed'"
+                      decoration-warning="status=='repairing'" decoration-danger="status=='cancel'">
+                    <field name="name"/>
+                    <field name="x_quotation_id"/>
+                    <field name="x_vehicle_plate"/>
+                    <field name="x_vin_number"/>
+                    <field name="x_owner_id"/>
+                    <field name="x_repair_date"/>
+                    <field name="x_completion_date"/>
+                    <field name="x_job_type_id"/>
+                    <field name="x_service_advisor_id"/>
+                    <field name="x_appointment_id"/>
+                    <field name="x_appointment_status"/>
+                    <field name="status" widget="badge"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_repair_order_form_inherited" model="ir.ui.view">
+            <field name="name">repair.quotation.form.inherited</field>
+            <field name="model">repair.order</field>
+            <field name="inherit_id" ref="repair.view_repair_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="replace">
+                    <header class="text-center">
+                        <div class="o_statusbar_buttons text-center w-100">
+                            <button name="action_contact" string="Liên hệ" type="object" class="oe_highlight"/>
+                            <button name="action_order_quotations" string="Đơn đặt hàng" type="object" class="oe_highlight"/>
+                            <button name="action_export_inv" string="Xuất kho" type="object" class="oe_highlight"/>
+                            <button name="action_customer_care" string="Chăm sóc KH" type="object"
+                                    class="oe_highlight"/>
+                            <button name="action_feedback" string="Khiếu nại" type="object" class="oe_highlight"/>
+                            <button name="action_checkout" string="Đại lý yêu cầu thanh toán" type="object"
+                                    class="oe_highlight"/>
+
+                        </div>
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="x_quotation_id"/>
+                                <field name="x_vehicle_plate"/>
+                                <field name="x_vin_number"/>
+                                <field name="x_owner_id"/>
+                                <field name="status"/>
+                            </group>
+                            <group>
+                                <field name="x_repair_date"/>
+                                <field name="x_completion_date"/>
+                                <field name="x_job_type_id"/>
+                                <field name="x_service_advisor_id"/>
+                                <field name="x_appointment_id"/>
+                                <field name="x_appointment_status"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Action for Hotel -->
+        <record id="repair_quotations_action" model="ir.actions.act_window">
+            <field name="name">Repair Quotations</field>
+            <field name="res_model">repair.order</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+    </data>
+</odoo>
