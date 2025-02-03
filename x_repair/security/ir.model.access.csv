@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_repair_order_extended,access_repair_order_extended,model_repair_order,base.group_system,1,1,1,1
+access_vehicle_information,access_vehicle_information,model_vehicle_information,base.group_system,1,1,1,1
+access_promotion_program,access_promotion_program,model_promotion_program,base.group_system,1,1,1,1
