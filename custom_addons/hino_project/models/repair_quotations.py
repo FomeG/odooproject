@@ -1,26 +1,48 @@
 from odoo import api, fields, models
 
-
 class RepairQuotations(models.Model):
-    _name = 'repair.quotations'
-    _description = 'Repair Quotations'
+    _inherit = 'repair.order'
 
-    # Header fields
-    name = fields.Char(string='Name', required=True)
-    x_quotation_id = fields.Many2one('repair.order', string='Quotation ID')
-    x_vehicle_plate = fields.Many2one('repair.order', string='Vehicle Plate')
-    x_vin_number = fields.Many2one('repair.order', string='VIN Number')
-    x_owner_id = fields.Many2one('repair.order', string='Owner ID')
-    x_repair_date = fields.Many2one('repair.order', string='Repair Date')
-    x_completion_date = fields.Many2one('repair.order', string='Completion Date')
-    x_job_type_id = fields.Many2one('repair.order', string='Job Type')
-    x_service_advisor_id = fields.Many2one('repair.order', string='Service Advisor')
-    x_appointment_id = fields.Many2one('repair.order', string='Appointment ID')
-    x_appointment_status = fields.Many2one('repair.order', string='Appointment Status')
-    status = fields.Selection([
-        ('draft', 'Draft'),
-        ('repairing', 'Repairing'),
-        ('completed', 'Completed'),
-        ('cancel', 'Cancelled'),
-        ('created', 'Created')
-    ], string='Status', default='draft')
+    # Fields for currency
+    currency_id = fields.Many2one(
+        'res.currency',
+        string='Currency',
+        default=lambda self: self.env.company.currency_id.id
+    )
+
+    # Thông tin header chứng từ - Thông tin chung
+    x_customer_feedback = fields.Char(
+        string='Ý kiến khách hàng',
+        help='Ý kiến khách hàng'
+    )
+    x_notes = fields.Char(
+        string='Notes',
+        help='Ghi chú/Lưu ý/Khuyến nghị'
+    )
+    x_content = fields.Char(
+        string='Nội dung',
+        help='Nội dung'
+    )
+
+    x_pricelist_id = fields.Many2one(
+        'product.pricelist',
+        string='Bảng giá',
+        help='Bảng giá được liên kết'
+    )
+
+    # Monetary fields with currency_field specified
+    x_total = fields.Monetary(
+        string='Thành tiền',
+        help='Thành tiền',
+        currency_field='currency_id'
+    )
+    x_tax_amount = fields.Monetary(
+        string='Tiền thuế',
+        help='Tiền thuế',
+        currency_field='currency_id'
+    )
+    x_total_amount = fields.Monetary(
+        string='Tổng',
+        help='Tổng',
+        currency_field='currency_id'
+    )
