@@ -1,4 +1,4 @@
-.*
+# sphinx build directories
 _build/
 
 *.github
@@ -11,19 +11,26 @@ _build/
 !/custom_addons/
 
 
-/addons/*
-
-
+# /addons/*
 # !/addons/
 # !/addons/repair/
 
 
+# /enterprise-17.0/*
+# !/enterprise-17.0/
+# !/enterprise-17.0/appointment/
+
+
+# dotfiles
+.*
 !.gitignore
 # !.github
 !.mailmap
 # compiled python files
 *.py[co]
 __pycache__/
+*.pyc
+
 # setup.py egg_info
 *.egg-info
 # emacs backup files
