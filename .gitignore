@@ -8,7 +8,9 @@ _build/
 **/i18n/
 **/i18n/*
 
-!/custom_addons/
+
+/custom_addons/*
+!/custom_addons/nhom3_project/
 
 
 # /addons/*
