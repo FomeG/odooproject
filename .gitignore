@@ -12,12 +12,14 @@ _build/
 /custom_addons/*
 !/custom_addons/
 !/custom_addons/nhom3_odoo_project/
+!/custom_addons/dai.py
 
 
 # /addons/*
 # !/addons/
 # !/addons/repair/
 # !/addons/stock/
+# !/addons/fleet/
 
 
 # /enterprise-17.0/*
