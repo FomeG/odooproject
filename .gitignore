@@ -10,7 +10,8 @@ _build/
 
 
 /custom_addons/*
-!/custom_addons/nhom3_project/
+!/custom_addons/
+!/custom_addons/nhom3_odoo_project/
 
 
 # /addons/*
